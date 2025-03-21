@@ -1,0 +1,17 @@
+import java.sql.*;
+
+public class DatabaseConnection {
+    private static final String URL = "jdbc:mysql://localhost:3306/student_management";
+    private static final String USER = "root";  // Change to your DB user
+    private static final String PASSWORD = "";  // Change if you have a DB password
+
+    public static Connection connect() {
+        try {
+            return DriverManager.getConnection(URL, USER, PASSWORD);
+        } catch (SQLException e) {
+            System.out.println("Database Connection Failed!");
+            e.printStackTrace();
+            return null;
+        }
+    }
+}
